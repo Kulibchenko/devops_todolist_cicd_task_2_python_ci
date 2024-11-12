@@ -42,6 +42,16 @@ jobs:
               run: |
                 pytest -v --cov-report=term-missing --cov=. --cov-report=json
 
+            - name: Archive Python code
+              run: |
+                cd ..
+                mkdir -p artifacts
+                cp -r src/* artifacts/
+
+            - name: List artifacts directory
+              run: |
+                ls -la artifacts/
+
             - name: Upload artifact
               uses: actions/upload-artifact@v4
               with:
