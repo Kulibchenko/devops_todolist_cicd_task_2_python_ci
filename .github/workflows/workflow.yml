@@ -41,3 +41,9 @@ jobs:
             - name: Test with pytest
               run: |
                 pytest -v --cov-report=term-missing --cov=. --cov-report=json
+
+            - name: Upload artifact
+              uses: actions/upload-artifact@v2
+              with:
+                name: python-code
+                path: artifacts/src
